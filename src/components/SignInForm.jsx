@@ -1,9 +1,13 @@
 import React from "react";
 
 const SignInForm = () => {
+  const handelUserRegister = (evt) => {
+    evt.preventDefault();
+    console.log("User Registered");
+  };
   return (
     <form
-      action=""
+      onSubmit={handelUserRegister}
       className="border sm:w-1/2 w-full p-10 flex flex-col gap-1 "
     >
       <h1 className="text-3xl mb-3">

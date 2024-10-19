@@ -7,6 +7,11 @@ const LogIn = () => {
     navigate("/");
   };
 
+  const handelUserLogin = (evt) => {
+    evt.preventDefault();
+    console.log("LOGGED !");
+  };
+
   scrollTo(0, 0);
   return (
     <div className="w-full mb-20">
@@ -22,7 +27,7 @@ const LogIn = () => {
 
       <div className="form w-full flex justify-center items-center flex-col ">
         <form
-          action=""
+          onSubmit={handelUserLogin}
           className="border sm:w-1/2 w-full p-10 flex flex-col gap-5 "
         >
           <h1 className="text-3xl mb-3">
