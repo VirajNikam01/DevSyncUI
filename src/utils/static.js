@@ -105,4 +105,27 @@ const Card_Data = [
   },
 ];
 
-export { Blog_Data, Card_Data };
+const Accordian_Data = [
+  {
+    id: Math.random().toString(28).substring(3),
+    title: "Is this a paid Platform?",
+    body: "No. we are not a paid platform at this moment. In future we might introduce some paid features, but the current features will remain free forever.",
+  },
+  {
+    id: Math.random().toString(28).substring(3),
+    title: "Can i use this platform from Phone without Laptop",
+    body: "Yes, you can use decsyncui platform on the phone, but we highly recommend you to use on laptop and practice the interview questions. Practicing on your own is really important if you want to make the best out of this platform.",
+  },
+  {
+    id: Math.random().toString(28).substring(3),
+    title: "Do we get access to code editor to solve problems?",
+    body: "No. at this point we do not provide access to the compilars, but soon we are planning to do that. till than you can practice the questions on your vs code or any another code editor.",
+  },
+  {
+    id: Math.random().toString(28).substring(3),
+    title: "If I have more questions, how can I reach out to you",
+    body: "Drop us mail at support@devsyncui.com",
+  },
+];
+
+export { Blog_Data, Card_Data, Accordian_Data };
