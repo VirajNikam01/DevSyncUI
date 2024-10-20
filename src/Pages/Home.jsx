@@ -6,11 +6,11 @@ import Blogs from "../components/Blogs";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const goToLoginPage = ()=>{
-    navigate('/login')
-  }
+  const goToLoginPage = () => {
+    navigate("/login");
+  };
 
 
   return (
