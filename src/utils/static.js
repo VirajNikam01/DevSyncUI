@@ -51,7 +51,7 @@ const Card_Data = [
     id: Math.random().toString(28).substring(3),
     profile:
       "https://images.unsplash.com/photo-1581090465237-2215893ba918?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Ankush Deshpande",
+    name: "Ankush",
     designation: "AI Engineer",
   },
   {
@@ -99,9 +99,9 @@ const Card_Data = [
   {
     id: Math.random().toString(28).substring(3),
     profile:
-      "https://images.unsplash.com/photo-1581092918484-8313ada2183a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Viraj Nikam",
-    designation: "React Developer",
+      "https://images.unsplash.com/photo-1597436684771-9c1c4a4adce2?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Shantanu",
+    designation: "SDE-3",
   },
 ];
 

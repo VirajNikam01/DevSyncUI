@@ -1,48 +1,94 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+
+const userAges = Array.from({ length: 30 }, (_, i) => i + 15);
 
 const SignInForm = () => {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
   const handelUserRegister = (evt) => {
-    evt.preventDefault();
-    console.log("User Registered");
+    console.log("User Registered", evt);
   };
   return (
     <form
-      onSubmit={handelUserRegister}
+      onSubmit={handleSubmit(handelUserRegister)}
       className="border sm:w-1/2 w-full p-10 flex flex-col gap-1 "
     >
       <h1 className="text-3xl mb-3">
         Register<span className="text-red-700 font-bold">.</span>
       </h1>
+      <p className="text-xs text-white/60">Fields marked * are compulsary</p>
 
-      <h1 className="text-xl mt-10">Personal</h1>
+      <h1 className="text-xl mt-10">Profile</h1>
       <div className=" flex flex-col gap-5">
         <div>
           <label className="block mb-1" htmlFor="name">
-            Name
+            Name <span>*</span>
           </label>
           <input
+            {...register("name", {
+              required: true,
+              minLength: 2,
+            })}
             type="text"
             id="name"
             placeholder="Jhon Doe"
             className="border px-4 py-2 w-full rounded-sm"
           />
+          {errors?.name && (
+            <p className="text-xs text-red-800 mt-1">Enter valid Name</p>
+          )}
         </div>
         <div>
           <label className="block mb-1" htmlFor="email">
-            Email
+            Email <span>*</span>
           </label>
           <input
+            {...register("email", {
+              required: true,
+              pattern : /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+            })}
             type="email"
             id="email"
             placeholder="abc@gmail.com"
             className="border px-4 py-2 w-full rounded-sm"
           />
+           {errors?.email && (
+            <p className="text-xs text-red-800 mt-1">Enter valid Email</p>
+          )}
         </div>
+        <div>
+          <label className="block mb-1" htmlFor="password">
+            Password <span>*</span>
+          </label>
+          <input
+            {...register("password", {
+              required: true,
+              minLength : 6
+            })}
+            type="password"
+            id="password"
+            placeholder="password@123"
+            className="border px-4 py-2 w-full rounded-sm"
+          />
+           {errors?.password && (
+            <p className="text-xs text-red-800 mt-1">Enter valid Password</p>
+          )}
+        </div>
+      </div>
+
+      <h1 className="text-xl mt-10">Personal</h1>
+      <div className=" flex flex-col gap-5">
         <div>
           <label className="block mb-1" htmlFor="gender">
             Gender
           </label>
           <select
+            {...register("gender")}
             name="gender"
             id="gender"
             className="border px-4 py-2 w-full rounded-sm"
@@ -53,17 +99,26 @@ const SignInForm = () => {
           </select>
         </div>
         <div>
-          <label className="block mb-1" htmlFor="password">
-            Password
+          <label className="block mb-1" htmlFor="age">
+            Age
           </label>
-          <input
-            type="password"
-            id="password"
-            placeholder="password@123"
+          <select
+            {...register("age")}
+            name="age"
+            id="age"
             className="border px-4 py-2 w-full rounded-sm"
-          />
+          >
+            {userAges.map((age) => {
+              return (
+                <option key={age} value={age}>
+                  {age}
+                </option>
+              );
+            })}
+          </select>
         </div>
       </div>
+
       <h1 className="text-xl mt-10">Technology</h1>
       <div className=" flex flex-col gap-5">
         <div>
@@ -75,31 +130,31 @@ const SignInForm = () => {
               <label htmlFor="js" className="mr-2">
                 Javascript
               </label>
-              <input type="checkbox" name="lang" />
+              <input {...register("lang")} value="javascript" type="checkbox" />
             </div>
             <div>
               <label htmlFor="react" className="mr-2">
                 React
               </label>
-              <input type="checkbox" name="lang" />
+              <input {...register("lang")} value="react" type="checkbox" />
             </div>
             <div>
               <label htmlFor="angular" className="mr-2">
                 Angular
               </label>
-              <input type="checkbox" name="lang" />
+              <input {...register("lang")} value="angular" type="checkbox" />
             </div>
             <div>
               <label htmlFor="node" className="mr-2">
                 Node
               </label>
-              <input type="checkbox" name="lang" />
+              <input {...register("lang")} value="node" type="checkbox" />
             </div>
             <div>
               <label htmlFor="java" className="mr-2">
                 Java
               </label>
-              <input type="checkbox" name="lang" />
+              <input {...register("lang")} value="java" type="checkbox" />
             </div>
           </div>
         </div>
@@ -108,6 +163,7 @@ const SignInForm = () => {
             Designation
           </label>
           <select
+            {...register("designation")}
             name="designation"
             id="designation"
             className="border px-4 py-2 w-full rounded-sm"
@@ -123,6 +179,7 @@ const SignInForm = () => {
             Description [About]
           </label>
           <textarea
+            {...register("about")}
             id="about"
             placeholder="Hello I'm John Doe, SDE@Google"
             className="border px-4 py-2 w-full rounded-sm"
