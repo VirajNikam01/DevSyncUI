@@ -132,3 +132,6 @@ input{
 select{
   background-color: black;
 }
+textarea{
+  background-color: black;
+}
