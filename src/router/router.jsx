@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import Home from "../Pages/Home";
 import SignIn from "../Pages/SignIn";
 import LogIn from "../Pages/LogIn";
+import DownTime from "../Pages/DownTime";
 
 export const router = createBrowserRouter([
   {
@@ -22,5 +23,9 @@ export const router = createBrowserRouter([
         element: <LogIn />,
       },
     ],
+  },
+  {
+    path: "/downtime",
+    element: <DownTime />,
   },
 ]);

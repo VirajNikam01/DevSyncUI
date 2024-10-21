@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import DownTimePopUp from "../components/DownTimePopUp";
 
 const LogIn = () => {
+
   const navigate = useNavigate();
   const {
     handleSubmit,
@@ -17,13 +19,12 @@ const LogIn = () => {
   const handelUserLogin = (evt) => {
     console.log(evt, "EVT");
 
-    try {
-    } catch (error) {}
+    navigate('/downtime')
   };
 
   scrollTo(0, 0);
   return (
-    <div className="w-full mb-20">
+    <div className={`w-full mb-20 `}>
       <div className="m-5 flex items-center gap-3">
         <div
           onClick={goBack}

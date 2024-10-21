@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const userAges = Array.from({ length: 30 }, (_, i) => i + 15);
 
@@ -10,8 +11,12 @@ const SignInForm = () => {
     formState: { errors },
   } = useForm();
 
+  const navigate = useNavigate();
+
   const handelUserRegister = (evt) => {
     console.log("User Registered", evt);
+
+    navigate("/downtime");
   };
   return (
     <form
@@ -50,14 +55,14 @@ const SignInForm = () => {
           <input
             {...register("email", {
               required: true,
-              pattern : /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+              pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
             })}
             type="email"
             id="email"
             placeholder="abc@gmail.com"
             className="border px-4 py-2 w-full rounded-sm"
           />
-           {errors?.email && (
+          {errors?.email && (
             <p className="text-xs text-red-800 mt-1">Enter valid Email</p>
           )}
         </div>
@@ -68,14 +73,14 @@ const SignInForm = () => {
           <input
             {...register("password", {
               required: true,
-              minLength : 6
+              minLength: 6,
             })}
             type="password"
             id="password"
             placeholder="password@123"
             className="border px-4 py-2 w-full rounded-sm"
           />
-           {errors?.password && (
+          {errors?.password && (
             <p className="text-xs text-red-800 mt-1">Enter valid Password</p>
           )}
         </div>
