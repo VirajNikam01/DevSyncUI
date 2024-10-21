@@ -128,4 +128,104 @@ const Accordian_Data = [
   },
 ];
 
-export { Blog_Data, Card_Data, Accordian_Data };
+const jsQuiz = [
+  {
+    question: "What is the result of `typeof NaN` in JavaScript?",
+    options: [
+      { answer: "Number", isCorrect: true },
+      { answer: "String", isCorrect: false },
+      { answer: "Object", isCorrect: false },
+      { answer: "Undefined", isCorrect: false }
+    ]
+  },
+  {
+    question: "Which of the following is used to declare a constant in JavaScript?",
+    options: [
+      { answer: "const", isCorrect: true },
+      { answer: "let", isCorrect: false },
+      { answer: "var", isCorrect: false },
+      { answer: "function", isCorrect: false }
+    ]
+  },
+  {
+    question: "Which method is used to convert JSON into a JavaScript object?",
+    options: [
+      { answer: "JSON.stringify()", isCorrect: false },
+      { answer: "JSON.parse()", isCorrect: true },
+      { answer: "JSON.objectify()", isCorrect: false },
+      { answer: "JSON.toObject()", isCorrect: false }
+    ]
+  }
+];
+
+const htmlQuiz = [
+  {
+    question: "Which HTML element is used for the largest heading?",
+    options: [
+      { answer: "<h1>", isCorrect: true },
+      { answer: "<h6>", isCorrect: false },
+      { answer: "<header>", isCorrect: false },
+      { answer: "<h3>", isCorrect: false }
+    ]
+  },
+  {
+    question: "Which attribute is used to link an external stylesheet?",
+    options: [
+      { answer: "href", isCorrect: true },
+      { answer: "src", isCorrect: false },
+      { answer: "link", isCorrect: false },
+      { answer: "rel", isCorrect: false }
+    ]
+  },
+  {
+    question: "What does the `<br>` tag do?",
+    options: [
+      { answer: "Creates a break in text", isCorrect: true },
+      { answer: "Creates a horizontal line", isCorrect: false },
+      { answer: "Boldens the text", isCorrect: false },
+      { answer: "Inserts an image", isCorrect: false }
+    ]
+  }
+];
+
+const reactQuiz = [
+  {
+    question: "What is the correct way to create a component in React?",
+    options: [
+      { answer: "function MyComponent() {}", isCorrect: true },
+      { answer: "component MyComponent() {}", isCorrect: false },
+      { answer: "function my_component() {}", isCorrect: false },
+      { answer: "create MyComponent() {}", isCorrect: false }
+    ]
+  },
+  {
+    question: "Which hook is used to manage state in a functional component?",
+    options: [
+      { answer: "useState()", isCorrect: true },
+      { answer: "useEffect()", isCorrect: false },
+      { answer: "useContext()", isCorrect: false },
+      { answer: "useReducer()", isCorrect: false }
+    ]
+  },
+  {
+    question: "What is JSX?",
+    options: [
+      { answer: "A syntax extension for JavaScript", isCorrect: true },
+      { answer: "A server-side language", isCorrect: false },
+      { answer: "A library for styling components", isCorrect: false },
+      { answer: "A templating engine", isCorrect: false }
+    ]
+  }
+];
+
+const Quiz_Data = {
+  javascript: jsQuiz,
+  html: htmlQuiz,
+  react: reactQuiz
+};
+
+
+
+
+
+export { Blog_Data, Card_Data, Accordian_Data, Quiz_Data };
