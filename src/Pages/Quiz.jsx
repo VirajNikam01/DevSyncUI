@@ -14,6 +14,7 @@ const Quiz = () => {
     navigate(selectedTech);
   };
 
+  scrollTo(0, 0);
   return (
     <div className="max-w-screen-xl mx-auto my-5">
       <h1 className=" text-2xl sm:text-3xl font-bold px-2">Let's Quiz, </h1>
