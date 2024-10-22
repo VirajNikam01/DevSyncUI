@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Question from "./Question";
 import QuizResult from "./QuizResult";
+import ProgressBar from "./ProgressBar";
 
 const QuizApp = ({ data }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -32,12 +33,20 @@ const QuizApp = ({ data }) => {
     setCorrectAnswers([]);
   };
 
-
   return (
     <div>
       {!isFormCompleted ? (
         <>
           <div className="containt text-center  ">
+            {/* Progress Bar */}
+            <div className=' sm:w-2/3 mx-auto mt-10 px-5'>
+              <ProgressBar
+                currentStep={currentQuestion}
+                totalSteps={data.length}
+              />
+            </div>
+
+            {/* Question */}
             <Question
               key={data[currentQuestion].question}
               question={data[currentQuestion].question}

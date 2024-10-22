@@ -17,7 +17,9 @@ const Quiz = () => {
   scrollTo(0, 0);
   return (
     <div className="max-w-screen-xl mx-auto my-5">
-      <h1 className=" text-2xl sm:text-3xl font-bold px-2">Let's Quiz, </h1>
+      <h1 className=" text-2xl sm:text-3xl font-bold px-2 select-none">
+        Let's Quiz,{" "}
+      </h1>
 
       <div className="container flex flex-col w-full items-center justify-center my-10">
         <h1 className="text-xl">Choose Technology,</h1>
@@ -47,7 +49,7 @@ const Quiz = () => {
         <div className="description text-center px-2 my-3 text-sm text-white/70 md:w-1/2">
           <p>
             Welcome to the Quiz Challenge! Test your knowledge across multiple
-            sections, each with 3 exciting questions. You’ll have 30 seconds to
+            sections, each with 6 exciting questions. You’ll have 30 seconds to
             answer each question, so think fast and aim for the top score. Ready
             to begin? Let’s get started!
           </p>

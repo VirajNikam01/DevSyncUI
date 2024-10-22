@@ -130,102 +130,193 @@ const Accordian_Data = [
 
 const jsQuiz = [
   {
-    question: "What is the result of `typeof NaN` in JavaScript?",
+    question:
+      "Which operator is used to assign a value to a variable in JavaScript?",
     options: [
-      { answer: "Number", isCorrect: true },
-      { answer: "String", isCorrect: false },
+      { answer: "=", isCorrect: true },
+      { answer: "==", isCorrect: false },
+      { answer: "===", isCorrect: false },
+      { answer: "*", isCorrect: false },
+    ],
+  },
+  {
+    question: "What is the output of `2 + '2'` in JavaScript?",
+    options: [
+      { answer: "'22'", isCorrect: true },
+      { answer: "4", isCorrect: false },
+      { answer: "'4'", isCorrect: false },
+      { answer: "NaN", isCorrect: false },
+    ],
+  },
+  {
+    question: "Which of the following is a primitive data type in JavaScript?",
+    options: [
+      { answer: "String", isCorrect: true },
+      { answer: "Array", isCorrect: false },
+      { answer: "Function", isCorrect: false },
       { answer: "Object", isCorrect: false },
-      { answer: "Undefined", isCorrect: false }
-    ]
+    ],
   },
   {
-    question: "Which of the following is used to declare a constant in JavaScript?",
+    question: "How do you write a comment in JavaScript?",
     options: [
-      { answer: "const", isCorrect: true },
-      { answer: "let", isCorrect: false },
-      { answer: "var", isCorrect: false },
-      { answer: "function", isCorrect: false }
-    ]
+      { answer: "// This is a comment", isCorrect: true },
+      { answer: "<!-- This is a comment -->", isCorrect: false },
+      { answer: "/* This is a comment */", isCorrect: false },
+      { answer: "# This is a comment", isCorrect: false },
+    ],
   },
   {
-    question: "Which method is used to convert JSON into a JavaScript object?",
+    question:
+      "Which method is used to remove the last element from an array in JavaScript?",
     options: [
-      { answer: "JSON.stringify()", isCorrect: false },
-      { answer: "JSON.parse()", isCorrect: true },
-      { answer: "JSON.objectify()", isCorrect: false },
-      { answer: "JSON.toObject()", isCorrect: false }
-    ]
-  }
+      { answer: "pop()", isCorrect: true },
+      { answer: "shift()", isCorrect: false },
+      { answer: "splice()", isCorrect: false },
+      { answer: "slice()", isCorrect: false },
+    ],
+  },
+  {
+    question: "What does the `isNaN()` function do in JavaScript?",
+    options: [
+      { answer: "Checks if a value is Not-A-Number", isCorrect: true },
+      { answer: "Converts a value to a number", isCorrect: false },
+      { answer: "Returns a number's absolute value", isCorrect: false },
+      { answer: "Returns true for numbers", isCorrect: false },
+    ],
+  },
 ];
 
 const htmlQuiz = [
   {
-    question: "Which HTML element is used for the largest heading?",
+    question: "Which tag is used to create a hyperlink in HTML?",
     options: [
-      { answer: "<h1>", isCorrect: true },
-      { answer: "<h6>", isCorrect: false },
-      { answer: "<header>", isCorrect: false },
-      { answer: "<h3>", isCorrect: false }
-    ]
+      { answer: "<a>", isCorrect: true },
+      { answer: "<link>", isCorrect: false },
+      { answer: "<href>", isCorrect: false },
+      { answer: "<nav>", isCorrect: false },
+    ],
   },
   {
-    question: "Which attribute is used to link an external stylesheet?",
+    question: "Which HTML attribute is used to define inline styles?",
     options: [
-      { answer: "href", isCorrect: true },
+      { answer: "style", isCorrect: true },
+      { answer: "class", isCorrect: false },
+      { answer: "id", isCorrect: false },
       { answer: "src", isCorrect: false },
-      { answer: "link", isCorrect: false },
-      { answer: "rel", isCorrect: false }
-    ]
+    ],
   },
   {
-    question: "What does the `<br>` tag do?",
+    question: "Which tag is used to display an image in HTML?",
     options: [
-      { answer: "Creates a break in text", isCorrect: true },
-      { answer: "Creates a horizontal line", isCorrect: false },
-      { answer: "Boldens the text", isCorrect: false },
-      { answer: "Inserts an image", isCorrect: false }
-    ]
-  }
+      { answer: "<img>", isCorrect: true },
+      { answer: "<src>", isCorrect: false },
+      { answer: "<picture>", isCorrect: false },
+      { answer: "<figure>", isCorrect: false },
+    ],
+  },
+  {
+    question: "What is the correct way to create a comment in HTML?",
+    options: [
+      { answer: "<!-- comment -->", isCorrect: true },
+      { answer: "// comment", isCorrect: false },
+      { answer: "/* comment */", isCorrect: false },
+      { answer: "# comment", isCorrect: false },
+    ],
+  },
+  {
+    question: "Which tag is used to create a numbered list in HTML?",
+    options: [
+      { answer: "<ol>", isCorrect: true },
+      { answer: "<ul>", isCorrect: false },
+      { answer: "<li>", isCorrect: false },
+      { answer: "<list>", isCorrect: false },
+    ],
+  },
+  {
+    question:
+      "Which attribute is used to specify a unique identifier for an HTML element?",
+    options: [
+      { answer: "id", isCorrect: true },
+      { answer: "class", isCorrect: false },
+      { answer: "name", isCorrect: false },
+      { answer: "key", isCorrect: false },
+    ],
+  },
 ];
 
 const reactQuiz = [
   {
-    question: "What is the correct way to create a component in React?",
+    question:
+      "Which hook should you use to fetch data when a component mounts?",
     options: [
-      { answer: "function MyComponent() {}", isCorrect: true },
-      { answer: "component MyComponent() {}", isCorrect: false },
-      { answer: "function my_component() {}", isCorrect: false },
-      { answer: "create MyComponent() {}", isCorrect: false }
-    ]
+      { answer: "useEffect()", isCorrect: true },
+      { answer: "useState()", isCorrect: false },
+      { answer: "useRef()", isCorrect: false },
+      { answer: "useMemo()", isCorrect: false },
+    ],
   },
   {
-    question: "Which hook is used to manage state in a functional component?",
+    question: "What does lifting state up mean in React?",
     options: [
-      { answer: "useState()", isCorrect: true },
-      { answer: "useEffect()", isCorrect: false },
-      { answer: "useContext()", isCorrect: false },
-      { answer: "useReducer()", isCorrect: false }
-    ]
+      {
+        answer: "Moving state to a common ancestor component",
+        isCorrect: true,
+      },
+      { answer: "Creating a higher-order component", isCorrect: false },
+      {
+        answer: "Passing state as props to child components",
+        isCorrect: false,
+      },
+      { answer: "Using Redux for state management", isCorrect: false },
+    ],
   },
   {
-    question: "What is JSX?",
+    question: "What is the significance of keys in React?",
     options: [
-      { answer: "A syntax extension for JavaScript", isCorrect: true },
-      { answer: "A server-side language", isCorrect: false },
-      { answer: "A library for styling components", isCorrect: false },
-      { answer: "A templating engine", isCorrect: false }
-    ]
-  }
+      {
+        answer: "To help React identify which items have changed",
+        isCorrect: true,
+      },
+      { answer: "To handle form inputs", isCorrect: false },
+      { answer: "To trigger re-rendering of components", isCorrect: false },
+      { answer: "To manage state updates", isCorrect: false },
+    ],
+  },
+  {
+    question: "How do you prevent unnecessary re-renders in React?",
+    options: [
+      { answer: "By using React.memo()", isCorrect: true },
+      { answer: "By using useEffect()", isCorrect: false },
+      { answer: "By using useRef()", isCorrect: false },
+      { answer: "By using useReducer()", isCorrect: false },
+    ],
+  },
+  {
+    question: "What does the useReducer hook do?",
+    options: [
+      { answer: "Manages complex state logic in a component", isCorrect: true },
+      { answer: "Handles side effects", isCorrect: false },
+      { answer: "Replaces the useState hook", isCorrect: false },
+      { answer: "Renders multiple child components", isCorrect: false },
+    ],
+  },
+  {
+    question:
+      "Which of the following is a valid way to conditionally render elements in React?",
+    options: [
+      { answer: "Using ternary operators", isCorrect: true },
+      { answer: "Using for loops", isCorrect: false },
+      { answer: "Using setTimeout", isCorrect: false },
+      { answer: "Using switch statements", isCorrect: false },
+    ],
+  },
 ];
 
 const Quiz_Data = {
   javascript: jsQuiz,
   html: htmlQuiz,
-  react: reactQuiz
+  react: reactQuiz,
 };
-
-
-
-
 
 export { Blog_Data, Card_Data, Accordian_Data, Quiz_Data };
