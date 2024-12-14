@@ -5,6 +5,8 @@ import Scroller from "../components/Scroller";
 import Blogs from "../components/Blogs";
 import { useNavigate } from "react-router-dom";
 import Accordian from "../components/Accordian";
+import { Card_Data } from "../utils/static";
+import SignUpIntro from "../components/SignUpIntro";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -25,7 +27,7 @@ const Home = () => {
         <h1 className="text-lg sm:text-xl pt-5 sm:py-4 px-5 sm:px-0">
           Dev's Using the Platform.
         </h1>
-        <Scroller />
+        <Scroller scrollerData={Card_Data}  />
       </div>
 
       {/* Education Blog */}
@@ -37,6 +39,10 @@ const Home = () => {
       <div className=" my-16 sm:my-20 px-2 sm:max-w-screen-xl mx-auto">
         <h1 className="text-sky-700 font-bold text-lg">FAQ's</h1>
         <Accordian />
+      </div>
+
+      <div>
+        <SignUpIntro />
       </div>
     </div>
   );

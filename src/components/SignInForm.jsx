@@ -13,10 +13,27 @@ const SignInForm = () => {
 
   const navigate = useNavigate();
 
-  const handelUserRegister = (evt) => {
+  const handelUserRegister = async (evt) => {
     console.log("User Registered", evt);
 
-    navigate("/downtime");
+    try {
+      const response = await fetch("http://localhost:7777/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(evt),
+        credentials: "include",
+      });
+
+      const data = await response.json();
+      if (data.message === "user registered") {
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log(error, "SIGN IN ERROE");
+      navigate("/downtime");
+    }
   };
   return (
     <form
@@ -31,17 +48,52 @@ const SignInForm = () => {
       <h1 className="text-xl mt-10">Profile</h1>
       <div className=" flex flex-col gap-5">
         <div>
-          <label className="block mb-1" htmlFor="name">
-            Name <span>*</span>
+          <label className="block mb-1" htmlFor="firstname">
+            First Name <span>*</span>
           </label>
           <input
-            {...register("name", {
+            {...register("firstName", {
               required: true,
               minLength: 2,
             })}
             type="text"
-            id="name"
-            placeholder="Jhon Doe"
+            id="firstname"
+            placeholder="Jhon"
+            className="border px-4 py-2 w-full rounded-sm"
+          />
+          {errors?.name && (
+            <p className="text-xs text-red-800 mt-1">Enter valid Name</p>
+          )}
+        </div>
+        <div>
+          <label className="block mb-1" htmlFor="lastname">
+            Last Name <span>*</span>
+          </label>
+          <input
+            {...register("lastName", {
+              required: true,
+              minLength: 2,
+            })}
+            type="text"
+            id="lastname"
+            placeholder="Doe"
+            className="border px-4 py-2 w-full rounded-sm"
+          />
+          {errors?.name && (
+            <p className="text-xs text-red-800 mt-1">Enter valid Name</p>
+          )}
+        </div>
+        <div>
+          <label className="block mb-1" htmlFor="photoUrl">
+            Photo URL
+          </label>
+          <input
+            {...register("photoUrl", {
+              minLength: 2,
+            })}
+            type="url"
+            id="photoUrl"
+            placeholder="https://images.unsplash.com/photo-1729205940313-ec6f3ccbbc63?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
             className="border px-4 py-2 w-full rounded-sm"
           />
           {errors?.name && (
@@ -53,7 +105,7 @@ const SignInForm = () => {
             Email <span>*</span>
           </label>
           <input
-            {...register("email", {
+            {...register("emailId", {
               required: true,
               pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
             })}
@@ -135,31 +187,35 @@ const SignInForm = () => {
               <label htmlFor="js" className="mr-2">
                 Javascript
               </label>
-              <input {...register("lang")} value="javascript" type="checkbox" />
+              <input
+                {...register("skills")}
+                value="javascript"
+                type="checkbox"
+              />
             </div>
             <div>
               <label htmlFor="react" className="mr-2">
                 React
               </label>
-              <input {...register("lang")} value="react" type="checkbox" />
+              <input {...register("skills")} value="react" type="checkbox" />
             </div>
             <div>
               <label htmlFor="angular" className="mr-2">
                 Angular
               </label>
-              <input {...register("lang")} value="angular" type="checkbox" />
+              <input {...register("skills")} value="angular" type="checkbox" />
             </div>
             <div>
               <label htmlFor="node" className="mr-2">
                 Node
               </label>
-              <input {...register("lang")} value="node" type="checkbox" />
+              <input {...register("skills")} value="node" type="checkbox" />
             </div>
             <div>
               <label htmlFor="java" className="mr-2">
                 Java
               </label>
-              <input {...register("lang")} value="java" type="checkbox" />
+              <input {...register("skills")} value="java" type="checkbox" />
             </div>
           </div>
         </div>

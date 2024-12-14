@@ -2,24 +2,66 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import DownTimePopUp from "../components/DownTimePopUp";
+import { useDispatch } from "react-redux";
+import { addUser } from "../store/slices/userSlice";
+import Loader from "../components/Loader";
+import { DEV_URL } from "../utils/helper";
 
 const LogIn = () => {
-
+  const [serverError, setServerError] = useState(null);
+  const [isFormSubmitting, setIsFormSubmitting] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      email: "virajnikam@gmail.com",
+      password: "Viraj@123",
+    },
+  });
 
   const goBack = () => {
     navigate("/");
   };
 
-  const handelUserLogin = (evt) => {
-    console.log(evt, "EVT");
+  const handelUserLogin = async (evt) => {
+    setIsFormSubmitting(true);
+    try {
+      const { email, password } = evt;
+      const response = await fetch(`${DEV_URL}login`, {
+        method: "POST",
+        body: JSON.stringify({
+          emailId: email,
+          password: password,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
 
-    navigate('/downtime')
+      const data = await response.json();
+      setIsFormSubmitting(false);
+      if (data?.message) {
+        return setServerError(data.message);
+      }
+
+      dispatch(addUser(data));
+
+      navigate("/feed");
+    } catch (error) {
+      setIsFormSubmitting(false);
+      navigate("/downtime");
+      console.log(error, "ERRROR");
+    }
+  };
+
+  const goToRegisterPage = () => {
+    navigate("/signin");
   };
 
   scrollTo(0, 0);
@@ -43,6 +85,14 @@ const LogIn = () => {
           <h1 className="text-3xl mb-3">
             LogIn<span className="text-red-700 font-bold">.</span>
           </h1>
+
+          <p
+            className={`text-sm text-red-600 duration-500 ${
+              serverError ? "h-5" : "h-0"
+            } overflow-hidden`}
+          >
+            {serverError}
+          </p>
 
           <div>
             <label className="block mb-1" htmlFor="email">
@@ -69,6 +119,7 @@ const LogIn = () => {
             <input
               {...register("password", {
                 minLength: 6,
+                required: true,
               })}
               type="password"
               id="password"
@@ -80,9 +131,25 @@ const LogIn = () => {
             )}
           </div>
 
-          <button className="bg-teal-600 rounded-sm py-2 font-medium">
-            Login
+          <button
+            disabled={isFormSubmitting}
+            className="bg-teal-600 rounded-sm  font-medium disabled:bg-gray-600"
+          >
+            {isFormSubmitting ? (
+              <Loader className="w-10 mx-auto" />
+            ) : (
+              <p className="py-2">Login</p>
+            )}
           </button>
+
+          <div className="more-info">
+            <p
+              onClick={goToRegisterPage}
+              className="text-sm cursor-pointer text-white/70 hover:text-sky-800"
+            >
+              New User, click to Register
+            </p>
+          </div>
         </form>
       </div>
     </div>

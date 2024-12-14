@@ -34,73 +34,73 @@ const Blog_Data = [
 
 const Card_Data = [
   {
-    id: Math.random().toString(28).substring(3),
-    profile:
+    _id: Math.random().toString(28).substring(3),
+    photoUrl:
       "https://images.unsplash.com/photo-1581092918484-8313ada2183a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Viraj Nikam",
+    firstName: "Viraj Nikam",
     designation: "React Developer",
   },
   {
-    id: Math.random().toString(28).substring(3),
-    profile:
+    _id: Math.random().toString(28).substring(3),
+    photoUrl:
       "https://images.unsplash.com/photo-1581090123319-511acf578fe9?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Atharva Shaha",
+    firstName: "Atharva Shaha",
     designation: "SDE-1",
   },
   {
-    id: Math.random().toString(28).substring(3),
-    profile:
+    _id: Math.random().toString(28).substring(3),
+    photoUrl:
       "https://images.unsplash.com/photo-1581090465237-2215893ba918?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Ankush",
+    firstName: "Ankush",
     designation: "AI Engineer",
   },
   {
-    id: Math.random().toString(28).substring(3),
-    profile:
+    _id: Math.random().toString(28).substring(3),
+    photoUrl:
       "https://images.unsplash.com/photo-1580983555975-05bc6e99eb6e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Karan Shinde",
+    firstName: "Karan Shinde",
     designation: "SDE-1",
   },
   {
-    id: Math.random().toString(28).substring(3),
-    profile:
+    _id: Math.random().toString(28).substring(3),
+    photoUrl:
       "https://plus.unsplash.com/premium_photo-1683134146828-af5c1a0d2953?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Sham Sharma",
+    firstName: "Sham Sharma",
     designation: "Python Dev",
   },
   {
-    id: Math.random().toString(28).substring(3),
-    profile:
+    _id: Math.random().toString(28).substring(3),
+    photoUrl:
       "https://images.unsplash.com/photo-1617397303021-f68bae9f29d6?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Swati Naik",
+    firstName: "Swati Naik",
     designation: "SDE-2",
   },
   {
-    id: Math.random().toString(28).substring(3),
-    profile:
+    _id: Math.random().toString(28).substring(3),
+    photoUrl:
       "https://plus.unsplash.com/premium_photo-1664299935896-8b7638a6f105?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Kastuk naik",
+    firstName: "Kastuk naik",
     designation: "Fresher",
   },
   {
-    id: Math.random().toString(28).substring(3),
-    profile:
+    _id: Math.random().toString(28).substring(3),
+    photoUrl:
       "https://plus.unsplash.com/premium_photo-1682141009894-957650ccc3d5?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Shweta pandit",
+    firstName: "Shweta pandit",
     designation: "UX Dev",
   },
   {
-    id: Math.random().toString(28).substring(3),
-    profile:
+    _id: Math.random().toString(28).substring(3),
+    photoUrl:
       "https://images.unsplash.com/photo-1553484771-898ed465e931?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Sanket Jaha",
+    firstName: "Sanket Jaha",
     designation: "Fresher",
   },
   {
-    id: Math.random().toString(28).substring(3),
-    profile:
+    _id: Math.random().toString(28).substring(3),
+    photoUrl:
       "https://images.unsplash.com/photo-1597436684771-9c1c4a4adce2?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Shantanu",
+    firstName: "Shantanu",
     designation: "SDE-3",
   },
 ];

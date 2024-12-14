@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+import { useUserData } from "../hooks/useUserData";
+import { useSelector } from "react-redux";
+import Loader from "./Loader";
+import useUserConnections from "../hooks/useUserConnections";
+import { DEV_URL } from "../utils/helper";
 
 const Layout = () => {
   const [isBanner, setIsBanner] = useState(true);
+  const navigate = useNavigate();
+  const { isUserLoading, user } = useSelector((store) => store.user);
+
+  useUserData(`${DEV_URL}profile/view`);
+
+  useUserConnections();
 
   return (
     <div className="w-full ">
       {isBanner && (
         <div className="w-full bg-sky-600 py-2 px-3 text-xs sm:text-sm sm:text-center relative">
           <h1 className="bg-transparent w-2/3 sm:w-full">
-            We are not a private limited company. So feel free to give
-            suggestions.
+            In case if we found any feature suggestion, feel free to share.
           </h1>
           <div
             onClick={() => setIsBanner(false)}
@@ -24,7 +34,13 @@ const Layout = () => {
       )}
       <Header />
       <div className="pt-2">
-        <Outlet />
+        {isUserLoading ? (
+          <div className="h-screen w-full flex items-center justify-center">
+            <Loader />
+          </div>
+        ) : (
+          <Outlet />
+        )}
       </div>
       <Footer />
     </div>
