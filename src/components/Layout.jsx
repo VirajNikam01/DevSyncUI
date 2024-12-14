@@ -22,7 +22,7 @@ const Layout = () => {
       {isBanner && (
         <div className="w-full bg-sky-600 py-2 px-3 text-xs sm:text-sm sm:text-center relative">
           <h1 className="bg-transparent w-2/3 sm:w-full">
-            In case if we found any feature suggestion, feel free to share.
+            If you come across any feature suggestions, feel free to share them.
           </h1>
           <div
             onClick={() => setIsBanner(false)}
