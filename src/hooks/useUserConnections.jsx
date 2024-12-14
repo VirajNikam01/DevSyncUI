@@ -10,6 +10,7 @@ const useUserConnections = () => {
     try {
       const response = await fetch(`${LIVE_URL}user/connections`, {
         credentials: "include",
+        headers: { "Content-Type": "application/json" },
       });
       const data = await response.json();
 

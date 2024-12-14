@@ -15,6 +15,7 @@ const Feed = () => {
     try {
       const data = await fetch(`${LIVE_URL}feed?page=1&limit=100`, {
         credentials: "include",
+        headers: { "Content-Type": "application/json" },
       });
       const response = await data.json();
       if (response?.data) setUsers(response.data);

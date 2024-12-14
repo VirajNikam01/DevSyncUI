@@ -7,6 +7,7 @@ const AcceptButton = ({ id, setRequestAccepted, RequestAccepted }) => {
         `http://localhost:7777/request/review/accepted/${id}`,
         {
           method: "POST",
+          headers: { "Content-Type": "application/json" },
           credentials: "include",
         }
       );

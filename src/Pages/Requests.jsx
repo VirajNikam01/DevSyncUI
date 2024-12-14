@@ -15,6 +15,7 @@ const Requests = () => {
         "http://localhost:7777/user/requests/received",
         {
           credentials: "include",
+          headers: { "Content-Type": "application/json" },
         }
       );
       const data = await response.json();

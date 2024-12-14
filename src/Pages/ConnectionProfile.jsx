@@ -19,6 +19,7 @@ const ConnectionProfile = () => {
     const getUserData = async () => {
       const response = await fetch(`${LIVE_URL}user/${id}`, {
         credentials: "include",
+        headers: { "Content-Type": "application/json" },
       });
 
       const data = await response.json();
