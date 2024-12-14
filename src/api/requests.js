@@ -1,8 +1,8 @@
-import { DEV_URL } from "../utils/helper";
+import { LIVE_URL } from "../utils/helper";
 
 const SendIntrestedRequest = async (id) => {
   try {
-    const response = await fetch(`${DEV_URL}request/send/intrested/${id}`, {
+    const response = await fetch(`${LIVE_URL}request/send/intrested/${id}`, {
       method: "POST",
       credentials: "include",
     });
@@ -10,10 +10,10 @@ const SendIntrestedRequest = async (id) => {
     if (data?.data) {
       return data.data;
     }
-    return undefined
+    return undefined;
   } catch (error) {
     console.log(error, "ERROR");
   }
 };
 
-export {SendIntrestedRequest}
+export { SendIntrestedRequest };

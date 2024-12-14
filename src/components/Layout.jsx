@@ -6,14 +6,14 @@ import { useUserData } from "../hooks/useUserData";
 import { useSelector } from "react-redux";
 import Loader from "./Loader";
 import useUserConnections from "../hooks/useUserConnections";
-import { DEV_URL } from "../utils/helper";
+import { LIVE_URL } from "../utils/helper";
 
 const Layout = () => {
   const [isBanner, setIsBanner] = useState(true);
   const navigate = useNavigate();
   const { isUserLoading, user } = useSelector((store) => store.user);
 
-  useUserData(`${DEV_URL}profile/view`);
+  useUserData(`${LIVE_URL}profile/view`);
 
   useUserConnections();
 

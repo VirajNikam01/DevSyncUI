@@ -5,7 +5,7 @@ import DownTimePopUp from "../components/DownTimePopUp";
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/slices/userSlice";
 import Loader from "../components/Loader";
-import { DEV_URL } from "../utils/helper";
+import { LIVE_URL } from "../utils/helper";
 
 const LogIn = () => {
   const [serverError, setServerError] = useState(null);
@@ -32,7 +32,7 @@ const LogIn = () => {
     setIsFormSubmitting(true);
     try {
       const { email, password } = evt;
-      const response = await fetch(`${DEV_URL}login`, {
+      const response = await fetch(`${LIVE_URL}login`, {
         method: "POST",
         body: JSON.stringify({
           emailId: email,

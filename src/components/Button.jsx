@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import useUserConnections from "../hooks/useUserConnections";
 // import { useDispatch } from "react-redux";
 // import { removeSingleCollection } from "../store/slices/userSlice";
-// import { DEV_URL } from "../utils/helper";
+// import { LIVE_URL } from "../utils/helper";
 // import { SendIntrestedRequest } from "../api/requests";
 
 const State = {

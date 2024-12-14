@@ -8,7 +8,7 @@ import { FaUserFriends } from "react-icons/fa";
 
 import { useDispatch } from "react-redux";
 import { removeUser } from "../store/slices/userSlice";
-import { DEV_URL } from "../utils/helper";
+import { LIVE_URL } from "../utils/helper";
 
 const options = [
   {
@@ -39,7 +39,7 @@ const ProfileNavigationPopUp = ({ setIsUserPopUpVisible }) => {
 
   const logoutUser = async () => {
     try {
-      const data = await fetch(`${DEV_URL}logout`, {
+      const data = await fetch(`${LIVE_URL}logout`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

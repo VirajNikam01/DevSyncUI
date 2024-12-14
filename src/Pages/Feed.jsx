@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Scroller from "../components/Scroller";
 import Loader from "../components/Loader";
 import { useNavigate } from "react-router-dom";
-import { DEV_URL } from "../utils/helper";
+import { LIVE_URL } from "../utils/helper";
 
 const Feed = () => {
   const [users, setUsers] = useState([]);
@@ -13,7 +13,7 @@ const Feed = () => {
 
   const getFeedPeople = async () => {
     try {
-      const data = await fetch(`${DEV_URL}feed?page=1&limit=100`, {
+      const data = await fetch(`${LIVE_URL}feed?page=1&limit=100`, {
         credentials: "include",
       });
       const response = await data.json();

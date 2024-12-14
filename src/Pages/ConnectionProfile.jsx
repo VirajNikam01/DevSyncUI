@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ProfilePhoto from "../components/ProfilePhoto";
 import ProfileInfo from "../components/ProfileInfo";
 import { useSelector } from "react-redux";
-import { DEV_URL } from "../utils/helper";
+import { LIVE_URL } from "../utils/helper";
 import Button from "../components/Button";
 import { SendIntrestedRequest } from "../api/requests";
 
@@ -17,7 +17,7 @@ const ConnectionProfile = () => {
 
   useEffect(() => {
     const getUserData = async () => {
-      const response = await fetch(`${DEV_URL}user/${id}`, {
+      const response = await fetch(`${LIVE_URL}user/${id}`, {
         credentials: "include",
       });
 
