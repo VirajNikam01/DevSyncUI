@@ -6,7 +6,15 @@ import ProfileInfo from "../components/ProfileInfo";
 import { useSelector } from "react-redux";
 import { LIVE_URL } from "../utils/helper";
 import Button from "../components/Button";
-import { SendIntrestedRequest } from "../api/requests";
+import { AcceptRequest, SendIntrestedRequest } from "../api/requests";
+import Loader from "../components/Loader";
+
+const RequestUrl = {
+  intrested: AcceptRequest,
+  accepted: () => console.log("CLICKED"),
+  none: SendIntrestedRequest,
+  pending: () => console.log("CLICKED"),
+};
 
 const ConnectionProfile = () => {
   const [user, setUser] = useState(undefined);
@@ -17,14 +25,18 @@ const ConnectionProfile = () => {
 
   useEffect(() => {
     const getUserData = async () => {
-      const response = await fetch(`${LIVE_URL}user/${id}`, {
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-      });
+      try {
+        const response = await fetch(`${LIVE_URL}user/${id}`, {
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+        });
 
-      const data = await response.json();
-      console.log(data, "DATA");
-      setUser(data?.data);
+        const data = await response.json();
+        console.log(data, "DATA");
+        setUser(data?.data);
+      } catch (error) {
+        console.log(error, "ERROR");
+      }
     };
 
     getUserData();
@@ -36,7 +48,12 @@ const ConnectionProfile = () => {
     navigate(-1);
   };
 
-  if (user === undefined) return;
+  if (user === undefined)
+    return (
+      <div className="min-h-[70vh] w-full flex items-center justify-center">
+        <Loader className="w-16 h-16" />
+      </div>
+    );
 
   return (
     <div className="flex relative flex-col items-center justify-center sm:my-5 max-w-screen-xl mx-auto mb-32">
@@ -66,7 +83,7 @@ const ConnectionProfile = () => {
             state={user.relationship}
             disabled={disabled}
             onClick={() => {
-              SendIntrestedRequest(id);
+              RequestUrl[user.relationship](id);
               setDisabled(true);
             }}
           />

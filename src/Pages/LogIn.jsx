@@ -32,7 +32,7 @@ const LogIn = () => {
   const handelUserLogin = async (evt) => {
     setIsFormSubmitting(true);
     try {
-      await UserLogin();
+      const data = await UserLogin(evt);
       setIsFormSubmitting(false);
       if (data?.message) {
         return setServerError(data.message);

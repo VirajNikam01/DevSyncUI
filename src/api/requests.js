@@ -1,4 +1,4 @@
-import { LIVE_URL } from "../utils/helper";
+import { DEV_URL, LIVE_URL } from "../utils/helper";
 
 const SendIntrestedRequest = async (id) => {
   try {
@@ -19,14 +19,11 @@ const SendIntrestedRequest = async (id) => {
 
 const AcceptRequest = async (id) => {
   try {
-    const response = await fetch(
-      `${LIVE_URL}request/review/accepted/${id}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      }
-    );
+    const response = await fetch(`${LIVE_URL}request/review/accepted/${id}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    });
     const data = await response.json();
 
     return data ? data : undefined;

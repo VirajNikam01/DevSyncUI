@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import { Link, useNavigate } from "react-router-dom";
+import { AcceptRequest } from "../api/requests";
 
 const UserList = ({ user, id }) => {
-  const [RequestAccepted, setRequestAccepted] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
   return (
-    <div className="w-full my-1 sm:max-w-screen-md flex flex-wrap gap-y-2 justify-between items-center border px-5 py-2
-      border-white/50">
+    <Link
+      to={`/user/${id}`}
+      className="w-full my-1 sm:max-w-screen-md flex flex-wrap gap-y-2 justify-between items-center border px-5 py-2
+      border-white/50"
+    >
       <div className="list  flex items-center justify-start  gap-3 p-1">
         <div className="profile w-16 h-16 rounded-full overflow-hidden">
           <img className="object-cover" src={user.photoUrl} alt="" />
@@ -25,12 +30,17 @@ const UserList = ({ user, id }) => {
       <div className="buttons ">
         <Button
           id={id}
-          onClick={() => console.log("Request Accepted")}
+          disabled={disabled}
+          onClick={(e) => {
+            e.stopPropagation();
+            AcceptRequest(id);
+            setDisabled(true);
+          }}
           state="intrested"
           className="px-5 duration-500 bg-teal-600/20"
         />
       </div>
-    </div>
+    </Link>
   );
 };
 

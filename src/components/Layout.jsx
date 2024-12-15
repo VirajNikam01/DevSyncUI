@@ -14,7 +14,6 @@ const Layout = () => {
 
   useUserData(`${LIVE_URL}profile/view`);
 
-
   return (
     <div className="w-full ">
       {isBanner && (

@@ -44,7 +44,7 @@ const Feed = () => {
           <Scroller isUserLoggedIn={true} scrollerData={users} />
         ) : (
           <div className="h-full min-h-52 w-full flex items-center justify-center ">
-            <Loader className="w-5 h-5" />
+            <Loader className="w-16 h-16" />
           </div>
         )}
       </div>

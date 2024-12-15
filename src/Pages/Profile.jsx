@@ -7,6 +7,7 @@ import { AiOutlineProfile } from "react-icons/ai";
 import "../App.css";
 
 const Profile = () => {
+  const {user} = useSelector((store)=>store.user)
   const date = new Date(user?.createdAt);
 
   const navigate = useNavigate();
