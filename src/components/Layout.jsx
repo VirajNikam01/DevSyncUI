@@ -5,7 +5,6 @@ import Footer from "./Footer";
 import { useUserData } from "../hooks/useUserData";
 import { useSelector } from "react-redux";
 import Loader from "./Loader";
-import useUserConnections from "../hooks/useUserConnections";
 import { LIVE_URL } from "../utils/helper";
 
 const Layout = () => {
@@ -15,7 +14,6 @@ const Layout = () => {
 
   useUserData(`${LIVE_URL}profile/view`);
 
-  useUserConnections();
 
   return (
     <div className="w-full ">

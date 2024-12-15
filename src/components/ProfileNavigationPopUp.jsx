@@ -9,6 +9,7 @@ import { FaUserFriends } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../store/slices/userSlice";
 import { LIVE_URL } from "../utils/helper";
+import { LogoutUser } from "../api/auth";
 
 const options = [
   {
@@ -38,20 +39,9 @@ const ProfileNavigationPopUp = ({ setIsUserPopUpVisible }) => {
   const dispatch = useDispatch();
 
   const logoutUser = async () => {
-    try {
-      const data = await fetch(`${LIVE_URL}logout`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-      const response = await data.json();
-      navigate("/");
-      dispatch(removeUser());
-    } catch (error) {
-      console.log(error.message, "ERROR MESSAGE");
-    }
+    await LogoutUser();
+    dispatch(removeUser(null));
+    navigate("/");
   };
   return (
     <div className="bg-gray-700 border w-40 sm:w-52 rounded-lg p-1">

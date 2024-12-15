@@ -1,21 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import useUserConnections from "../hooks/useUserConnections";
 import { Link, useNavigate } from "react-router-dom";
 
 const Connections = () => {
-  const connections = useSelector((store) => store.user.connections);
-  useUserConnections();
+  const [Connections, setConnections] = useState([])
+  
 
   const navigate = useNavigate();
 
-  const handelUserClick = (id, elem, isConection = false) => {
-    navigate(`/connection/${id}`, { state: { ...elem, isConection: true } });
+  const handelUserClick = (id) => {
+    navigate(`/user/${id}`);
   };
 
   return (
     <div className="max-w-screen-xl mx-auto my-5 flex flex-col items-center justify-center ">
-      {connections.map((elem) => {
+      {Connections.map((elem) => {
         return (
           <div
             onClick={() => handelUserClick(elem._id, elem)}

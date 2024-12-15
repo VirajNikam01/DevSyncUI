@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../store/slices/userSlice";
 import Loader from "../components/Loader";
 import { LIVE_URL } from "../utils/helper";
+import { UserLogin } from "../api/auth";
 
 const LogIn = () => {
   const [serverError, setServerError] = useState(null);
@@ -31,20 +32,7 @@ const LogIn = () => {
   const handelUserLogin = async (evt) => {
     setIsFormSubmitting(true);
     try {
-      const { email, password } = evt;
-      const response = await fetch(`${LIVE_URL}login`, {
-        method: "POST",
-        body: JSON.stringify({
-          emailId: email,
-          password: password,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-
-      const data = await response.json();
+      await UserLogin();
       setIsFormSubmitting(false);
       if (data?.message) {
         return setServerError(data.message);

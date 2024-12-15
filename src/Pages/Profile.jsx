@@ -7,18 +7,12 @@ import { AiOutlineProfile } from "react-icons/ai";
 import "../App.css";
 
 const Profile = () => {
-  const {user, connections} = useSelector((store) => store.user);
-
   const date = new Date(user?.createdAt);
 
   const navigate = useNavigate();
   const goToEditPage = () => {
     navigate("/profile-edit");
   };
-
-
-
-
 
   return (
     <div className="flex relative flex-col items-center justify-center sm:my-5 max-w-screen-xl mx-auto mb-32">
@@ -52,8 +46,10 @@ const Profile = () => {
 
       {/* Connections */}
       <div className="req flex justify-between items-center w-full sm:w-1/2 px-2 sm:px-0">
-        <Link to={'/connections'} className="text-sm text-blue-800 hover:text-blue-800/50 cursor-pointer select-none duration-300">
-          <span className="count ">{connections.length}+</span>{" "}
+        <Link
+          to={"/connections"}
+          className="text-sm text-blue-800 hover:text-blue-800/50 cursor-pointer select-none duration-300"
+        >
           connections
         </Link>
         <div className="gender text-sm text-white/60">

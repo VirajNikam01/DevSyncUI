@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import AcceptButton from "./AcceptButton";
-import RejectButton from "./RejectButton";
+import Button from "./Button";
 
 const UserList = ({ user, id }) => {
   const [RequestAccepted, setRequestAccepted] = useState(null);
 
   return (
-    <div className="w-full my-1 sm:w-10/12 flex flex-wrap gap-y-2 justify-between items-center border-t border-white/50">
+    <div className="w-full my-1 sm:max-w-screen-md flex flex-wrap gap-y-2 justify-between items-center border px-5 py-2
+      border-white/50">
       <div className="list  flex items-center justify-start  gap-3 p-1">
         <div className="profile w-16 h-16 rounded-full overflow-hidden">
           <img className="object-cover" src={user.photoUrl} alt="" />
@@ -23,21 +23,12 @@ const UserList = ({ user, id }) => {
       </div>
 
       <div className="buttons ">
-        {RequestAccepted === "accepted" ? (
-          <AcceptButton id={id} RequestAccepted={RequestAccepted} />
-        ) : RequestAccepted === "rejected" ? (
-          <RejectButton />
-        ) : (
-          <div className="flex gap-5">
-            {" "}
-            <AcceptButton
-              id={id}
-              setRequestAccepted={setRequestAccepted}
-              RequestAccepted={RequestAccepted}
-            />
-            <RejectButton setRequestAccepted={setRequestAccepted} />
-          </div>
-        )}
+        <Button
+          id={id}
+          onClick={() => console.log("Request Accepted")}
+          state="intrested"
+          className="px-5 duration-500 bg-teal-600/20"
+        />
       </div>
     </div>
   );

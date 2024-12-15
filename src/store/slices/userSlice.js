@@ -6,7 +6,6 @@ const userSlice = createSlice({
     isUserLoading: true,
     isServerError: null,
     user: null,
-    connections : []
   },
   reducers: {
     addUser: (state, action) => {
@@ -23,17 +22,11 @@ const userSlice = createSlice({
     setServerError: (state, action) => {
       state.isServerError = action.payload;
     },
-    addConnections:(state, action)=>{
-      state.connections = action.payload
-    },
-    removeSingleCollection:(state, action)=>{
-      state.connections = state.connections.filter((elem)=>{
-        elem.id !== action.payload
-      })
-    }
+
+
   },
 });
 
-export const { addUser, removeUser, removeUserLoader, setServerError, addConnections, removeSingleCollection } =
+export const { addUser, removeUser, removeUserLoader, setServerError } =
   userSlice.actions;
 export default userSlice.reducer;

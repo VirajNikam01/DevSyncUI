@@ -1,8 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { RegisterNewUser } from "../api/auth";
 
-const userAges = Array.from({ length: 30 }, (_, i) => i + 15);
+const userAges = Array.from({ length: 8 }, (_, i) => i + 18);
 
 const SignInForm = () => {
   const {
@@ -14,26 +15,8 @@ const SignInForm = () => {
   const navigate = useNavigate();
 
   const handelUserRegister = async (evt) => {
-    console.log("User Registered", evt);
-
-    try {
-      const response = await fetch("http://localhost:7777/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(evt),
-        credentials: "include",
-      });
-
-      const data = await response.json();
-      if (data.message === "user registered") {
-        navigate("/login");
-      }
-    } catch (error) {
-      console.log(error, "SIGN IN ERROE");
-      navigate("/downtime");
-    }
+    await RegisterNewUser(evt);
+    navigate("/login");
   };
   return (
     <form
