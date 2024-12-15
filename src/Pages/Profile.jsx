@@ -7,7 +7,7 @@ import { AiOutlineProfile } from "react-icons/ai";
 import "../App.css";
 
 const Profile = () => {
-  const {user} = useSelector((store)=>store.user)
+  const { user } = useSelector((store) => store.user);
   const date = new Date(user?.createdAt);
 
   const navigate = useNavigate();
@@ -83,10 +83,13 @@ const Profile = () => {
           Posts
         </h1>
         <div className="grid grid-cols-3 gap-[10px]">
-          {Array.from({ length: 20 }).map((elem, index) => {
+          {Array.from({ length: 9 }).map((elem, index) => {
             return (
-              <div key={index} className="w-full h-[100px] bg-slate-600">
-                {index}
+              <div
+                key={index}
+                className="w-full h-[100px] bg-white/5 rounded-md flex items-center justify-center"
+              >
+                <h1 className="text-xl text-white/15"> {index+1}</h1>
               </div>
             );
           })}

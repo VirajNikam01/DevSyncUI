@@ -18,19 +18,40 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export const router = createBrowserRouter([
-
+  {
+    path: "/",
+    element: (
+      <RestrictedRoutes>
+        <Header />
+        <Home />
+        <Footer />
+      </RestrictedRoutes>
+    ),
+  },
+  {
+    path: "/quiz",
+    element: (
+      <>
+        <Header />
+        <Quiz />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/quiz/:tech",
+    element: (
+      <>
+        <Header />
+        <PlayQuiz />
+        <Footer />
+      </>
+    ),
+  },
   {
     path: "/",
     element: <Layout />,
     children: [
-      {
-        path: "/",
-        element: (
-          <RestrictedRoutes>
-            <Home />
-          </RestrictedRoutes>
-        ),
-      },
       {
         path: "/login",
         element: (
@@ -46,14 +67,6 @@ export const router = createBrowserRouter([
             <SignIn />
           </RestrictedRoutes>
         ),
-      },
-      {
-        path: "/quiz",
-        element: <Quiz />,
-      },
-      {
-        path: "/quiz/:tech",
-        element: <PlayQuiz />,
       },
       {
         path: "/feed",

@@ -49,6 +49,8 @@ const UserLogin = async (evt) => {
       credentials: "include",
     });
 
+    console.log("LOGGED IN!!!");
+
     const data = await response.json();
     return data;
   } catch (error) {

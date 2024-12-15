@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addUser,
   removeUserLoader,
@@ -17,7 +17,7 @@ export const useUserData = (url) => {
       });
 
       const user = await response.json();
-      setIsFormSubmitting(false)
+      setIsFormSubmitting(false);
       if (user?.message) {
         dispatch(removeUserLoader());
         dispatch(setServerError(user?.message));
@@ -28,8 +28,9 @@ export const useUserData = (url) => {
     } catch (error) {
       dispatch(removeUserLoader());
       dispatch(setServerError(error?.message));
-      setIsFormSubmitting(false)
-    } 
+      setIsFormSubmitting(false);
+      dispatch(removeUserLoader());
+    }
   };
 
   useEffect(() => {
@@ -37,6 +38,6 @@ export const useUserData = (url) => {
   }, []);
 
   return {
-    isFormSubmitting
-  }
+    isFormSubmitting,
+  };
 };

@@ -48,6 +48,24 @@ const Feed = () => {
           </div>
         )}
       </div>
+      {/* Posts */}
+      <div className="posts w-full my-5  px-2 sm:px-0">
+        <h1 className="mb-2 text-xl text-white/60 font-medium tracking-wide ">
+          #Trending
+        </h1>
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-[10px]">
+          {Array.from({ length: 12 }).map((elem, index) => {
+            return (
+              <div
+                key={index}
+                className="w-full h-[100px] bg-white/5 rounded-md flex items-center justify-center"
+              >
+                <h1 className="text-xs text-white/15"> {"coming soon"}</h1>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

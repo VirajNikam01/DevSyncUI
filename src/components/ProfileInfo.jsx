@@ -10,7 +10,7 @@ const ProfileInfo = ({ firstName, lastName, designation, about = "" }) => {
       <div className="description  sm:w-1/2">
         <p
           className={`text-center text-xs px-2 duration-300 ${
-            showAllAbout ? "sm:h-32 h-40" : "sm:h-16 h-24"
+            showAllAbout ? "sm:h-fit" : "sm:fit "
           } overflow-hidden text-white/80  `}
         >
           {showAllAbout ? about : about.substring(0, 300)}{" "}
