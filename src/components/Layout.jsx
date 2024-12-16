@@ -18,7 +18,7 @@ const Layout = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsServerLate(true);
-    }, 1000);
+    }, 3500);
 
     () => {
       return clearTimeout(timer);
