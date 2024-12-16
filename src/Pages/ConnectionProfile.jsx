@@ -21,7 +21,6 @@ const ConnectionProfile = () => {
   const [disabled, setDisabled] = useState(false);
   const { id } = useParams();
 
-
   useEffect(() => {
     const getUserData = async () => {
       try {
@@ -124,7 +123,7 @@ const ConnectionProfile = () => {
                 key={index}
                 className="w-full h-[100px] bg-white/5 rounded-md flex items-center justify-center"
               >
-                <h1 className="text-xl text-white/15"> {index+1}</h1>
+                <h1 className="text-xl text-white/15"> {index + 1}</h1>
               </div>
             );
           })}

@@ -7,23 +7,57 @@ import { useSelector } from "react-redux";
 import Loader from "./Loader";
 import { LIVE_URL } from "../utils/helper";
 
+const MESSAGES = [
+  "Server is waking up, please wait a moment!",
+  undefined,
+  "The server is still having its chai, wait a minute!",
+  undefined,
+  "The server is still finding its jhola, one moment!",
+  undefined,
+  "The server is fixing its kurta, almost ready!",
+  undefined,
+  "The server is looking for its chappals, just a moment!",
+  undefined,
+  "The server is waiting for its auto, please wait!",
+  undefined,
+  "The server is stuck in traffic near Lajpat Nagar, hold on!",
+  undefined,
+  "The server is stuck in a traffic jam on the way to the office!",
+  undefined,
+];
+let INDEX = 1;
+
 const Layout = () => {
   const [isBanner, setIsBanner] = useState(true);
-  const [isServerLate, setIsServerLate] = useState(false);
+  const [serverMessage, setServerMessage] = useState(undefined);
   const navigate = useNavigate();
   const { isUserLoading, user } = useSelector((store) => store.user);
 
   useUserData(`${LIVE_URL}profile/view`);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsServerLate(true);
-    }, 3500);
+    let timer = setTimeout(() => {
+      setServerMessage(MESSAGES[0]);
+    }, 3000);
 
-    () => {
-      return clearTimeout(timer);
-    };
+    return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    let timer;
+
+    if (!isUserLoading) {
+      clearTimeout(timer);
+      return;
+    }
+    const TIME = INDEX % 2 === 0 ? 300 : 6000;
+    timer = setTimeout(() => {
+      setServerMessage(MESSAGES[INDEX]);
+      INDEX >= MESSAGES.length - 1 ? (INDEX = 0) : INDEX++;
+    }, TIME);
+
+    return () => clearTimeout(timer);
+  }, [serverMessage]);
 
   return (
     <div className="w-full ">
@@ -45,11 +79,11 @@ const Layout = () => {
         {isUserLoading ? (
           <div className="min-h-[60vh] sm:min-h-[90vh] w-full flex items-center flex-col justify-center">
             <h1
-              className={`text-xs sm:text-base text-white animate-pulse duration-200 ${
-                isServerLate ? "h-5" : "h-0 overflow-y-hidden"
+              className={`text-xs sm:text-base text-white animate-pulse transition-all duration-700 ${
+                serverMessage ? "h-5" : "h-0 overflow-y-hidden"
               }`}
             >
-              "Server is waking up, please wait a moment!"
+              {serverMessage}
             </h1>
             <Loader />
           </div>

@@ -1,4 +1,4 @@
-import { DEV_URL, LIVE_URL } from "../utils/helper";
+import { LIVE_URL } from "../utils/helper";
 
 const SendIntrestedRequest = async (id) => {
   try {
