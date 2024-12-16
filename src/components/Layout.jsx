@@ -9,10 +9,21 @@ import { LIVE_URL } from "../utils/helper";
 
 const Layout = () => {
   const [isBanner, setIsBanner] = useState(true);
+  const [isServerLate, setIsServerLate] = useState(false);
   const navigate = useNavigate();
   const { isUserLoading, user } = useSelector((store) => store.user);
 
   useUserData(`${LIVE_URL}profile/view`);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsServerLate(true);
+    }, 1000);
+
+    () => {
+      return clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <div className="w-full ">
@@ -32,7 +43,14 @@ const Layout = () => {
       <Header />
       <div className="pt-2">
         {isUserLoading ? (
-          <div className="h-screen w-full flex items-center justify-center">
+          <div className="min-h-[60vh] sm:min-h-[90vh] w-full flex items-center flex-col justify-center">
+            <h1
+              className={`text-xs sm:text-base text-white animate-pulse duration-200 ${
+                isServerLate ? "h-5" : "h-0 overflow-y-hidden"
+              }`}
+            >
+              "Server is waking up, please wait a moment!"
+            </h1>
             <Loader />
           </div>
         ) : (
