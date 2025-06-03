@@ -19,10 +19,10 @@ const LogIn = () => {
     register,
     formState: { errors },
   } = useForm({
-    defaultValues: {
-      email: "virajnikam@gmail.com",
-      password: "Viraj@123",
-    },
+    // defaultValues: {
+    //   email: "virajnikam@gmail.com",
+    //   password: "Viraj@123",
+    // },
   });
 
   const goBack = () => {
@@ -33,6 +33,8 @@ const LogIn = () => {
     setIsFormSubmitting(true);
     try {
       const data = await UserLogin(evt);
+
+      console.log(data, "data");
       setIsFormSubmitting(false);
       if (data?.message) {
         return setServerError(data.message);
