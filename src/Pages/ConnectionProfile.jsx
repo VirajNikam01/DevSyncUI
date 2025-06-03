@@ -8,6 +8,7 @@ import { LIVE_URL } from "../utils/helper";
 import Button from "../components/Button";
 import { AcceptRequest, SendIntrestedRequest } from "../api/requests";
 import Loader from "../components/Loader";
+import { useQuery } from "@tanstack/react-query";
 
 const RequestUrl = {
   intrested: AcceptRequest,
@@ -17,28 +18,36 @@ const RequestUrl = {
 };
 
 const ConnectionProfile = () => {
-  const [user, setUser] = useState(undefined);
+  // const [user, setUser] = useState(undefined);
   const [disabled, setDisabled] = useState(false);
   const { id } = useParams();
 
-  useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const response = await fetch(`${LIVE_URL}user/${id}`, {
-          credentials: "include",
-          headers: { "Content-Type": "application/json" },
-        });
+  const getUserData = async () => {
+    try {
+      const response = await fetch(`${LIVE_URL}user/${id}`, {
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+      });
 
-        const data = await response.json();
-        console.log(data, "DATA");
-        setUser(data?.data);
-      } catch (error) {
-        console.log(error, "ERROR");
-      }
-    };
+      const data = await response.json();
+      console.log(data, "DATA");
+      return data.data;
+      // setUser(data?.data);
+    } catch (error) {
+      console.log(error, "ERROR");
+    }
+  };
 
-    getUserData();
-  }, [id]);
+  const { data: user } = useQuery({
+    queryKey: ["user", id],
+    queryFn: async () => {
+      return await getUserData();
+    },
+  });
+
+  // useEffect(() => {
+  //   getUserData();
+  // }, [id]);
 
   const navigate = useNavigate();
 

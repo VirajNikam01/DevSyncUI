@@ -5,9 +5,10 @@ import Scroller from "../components/Scroller";
 import Loader from "../components/Loader";
 import { useNavigate } from "react-router-dom";
 import { LIVE_URL } from "../utils/helper";
+import { useQuery } from "@tanstack/react-query";
 
 const Feed = () => {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const user = useSelector((store) => store.user.user);
   const navigate = useNavigate();
 
@@ -18,15 +19,23 @@ const Feed = () => {
         headers: { "Content-Type": "application/json" },
       });
       const response = await data.json();
-      if (response?.data) setUsers(response.data);
+      return response.data;
+      // if (response?.data) setUsers(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    getFeedPeople();
-  }, []);
+  const { data: users = [] } = useQuery({
+    queryKey: ["user-suggestions"],
+    queryFn: async () => {
+      return await getFeedPeople();
+    },
+  });
+
+  // useEffect(() => {
+  //   getFeedPeople();
+  // }, []);
 
   return (
     <div className=" w-full min-h-screen h-full p-1 sm:px-0 sm:my-2 max-w-screen-xl mx-auto">
